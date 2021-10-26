@@ -19,11 +19,10 @@ ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \
     --http-web3provider=\"$XDAI_RPC_URL\" \
     --bootstrap-node /root/sbc/config/bootnodes.yaml \
     --config-file /root/sbc/config/config.yml \
+    --chain-config-file /root/sbc/config/config.yml \
     --rpc-host=0.0.0.0 \
     --p2p-local-ip=0.0.0.0 \
     --subscribe-all-subnets \
-    # --historical-slasher-node \
-    # --grpc-gateway-host=0.0.0.0 \
     --monitoring-host=0.0.0.0 \
     --verbosity=debug \
     $EXTRA_OPTS" ]   
