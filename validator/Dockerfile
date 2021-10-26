@@ -9,10 +9,16 @@ RUN wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon
 
 
 ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/validator/validator.runfiles/prysm/cmd/validator/validator_/validator \
+    --datadir=/root/.sbc \
+    --wallet-dir=/root/.sbcvalidators \
     --config-file /root/sbc/config/config.yml \
     --chain-config-file /root/sbc/config/config.yml \
-    --wallet-password-file /root/sbc/keys/wallet_password.txt \
+    --wallet-password-file /root/.sbcwallets/wallet-password.txt \
     --write-wallet-password-on-web-onboarding \
     --web \
     --beacon-rpc-provider $BEACON_RPC_PROVIDER \
+    --grpc-gateway-host=0.0.0.0 \
+    --grpc-gateway-port=80 \
+    --rpc-host 0.0.0.0 \
+    --monitoring-host 0.0.0.0 \
     --accept-terms-of-use "]
