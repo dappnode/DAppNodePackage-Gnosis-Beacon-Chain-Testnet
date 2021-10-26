@@ -3,10 +3,20 @@
   "version": "0.1.0",
   "description": "stake-beacon-chain.public.dappnode.eth description",
   "type": "service",
+  "mainService": "validator",
   "author": "tropicar",
   "categories": ["Developer tools"],
   "links": {
-    "homepage": "https://your-project-homepage-or-docs.io"
+    "ui": "http://stake-beacon-chain.public.dappnode/onboarding",
+    "readme": "https://github.com/dappnode/DAppNodePackage-prysm",
+    "prysm": "https://prylabs.net"
   },
-  "license": "GLP-3.0"
+  "license": "GLP-3.0",
+  "backup": [
+    {
+      "name": "eth2validators",
+      "path": "/root/.eth2validators",
+      "service": "validator"
+    }
+  ]
 }
