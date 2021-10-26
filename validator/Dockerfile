@@ -14,5 +14,5 @@ ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/validator/validator.runfiles/prysm
     --wallet-password-file /root/sbc/keys/wallet_password.txt \
     --write-wallet-password-on-web-onboarding \
     --web \
-    --beacon-rpc-provider beacon-chain:4000 \
+    --beacon-rpc-provider $BEACON_RPC_PROVIDER \
     --accept-terms-of-use "]
