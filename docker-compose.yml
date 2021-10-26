@@ -9,9 +9,6 @@ services:
     ports:
       - 12000/udp
       - "13000"
-      - "4000"
-      - "3500"
-      - "8080"
     restart: unless-stopped
     environment:
       XDAI_RPC_URL: "https://sokol.poa.network/"
