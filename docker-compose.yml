@@ -1,0 +1,32 @@
+version: "3.4"
+services:
+  beacon-chain:
+    image: "stake-beacon-chain.public.dappnode.eth:0.1.0"
+    build:
+      context: beacon-chain
+    ports:
+      - 12000/udp
+      - "13000"
+      - "4000"
+      - "3500"
+      - "8080"
+    restart: unless-stopped
+    environment:
+      XDAI_RPC_URL: "https://sokol.poa.network/"
+      DEPLOYMENT_BLOCK: 22694907
+      EXTRA_OPTS: ""
+  validator:
+    image: "stake-validator.public.dappnode.eth:0.1.0"
+    build:
+      context: validator
+    volumes:
+      - ./config:/root/sbc/config
+      - ./keys:/root/sbc/keys
+      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+    restart: unless-stopped
+    environment:
+      BEACON_RPC_PROVIDER: "beacon-chain.sbc.dappnode:4000"
+      EXTRA_OPTS: ""
+volumes:
+  beacon-chain-data: {}
+  validator-data: {}

@@ -1,0 +1,12 @@
+{
+  "name": "stake-beacon-chain.public.dappnode.eth",
+  "version": "0.1.0",
+  "description": "stake-beacon-chain.public.dappnode.eth description",
+  "type": "service",
+  "author": "tropicar",
+  "categories": ["Developer tools"],
+  "links": {
+    "homepage": "https://your-project-homepage-or-docs.io"
+  },
+  "license": "GLP-3.0"
+}
