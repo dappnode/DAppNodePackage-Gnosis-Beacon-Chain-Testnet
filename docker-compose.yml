@@ -4,6 +4,8 @@ services:
     image: "stake-beacon-chain.public.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
+    volumes:
+      - "beacon-chain-data:/data"
     ports:
       - 12000/udp
       - "13000"
@@ -20,12 +22,10 @@ services:
     build:
       context: validator
     volumes:
-      - ./config:/root/sbc/config
-      - ./keys:/root/sbc/keys
-      - ./wallet:/home/.eth2validators/prysm-wallet-v2
+      - "validator-data:/root/"
     restart: unless-stopped
     environment:
-      BEACON_RPC_PROVIDER: "beacon-chain.sbc.dappnode:4000"
+      BEACON_RPC_PROVIDER: "stake-beacon-chain.dappnode:4000"
       EXTRA_OPTS: ""
 volumes:
   beacon-chain-data: {}
