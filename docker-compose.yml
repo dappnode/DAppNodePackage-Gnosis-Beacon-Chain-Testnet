@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   beacon-chain:
-    image: "beacon-chain.stake-beacon-chain.public.dappnode.eth:0.1.0"
+    image: "beacon-chain.stake.dnp.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
     volumes:
@@ -18,14 +18,15 @@ services:
       DEPLOYMENT_BLOCK: 22694907
       EXTRA_OPTS: ""
   validator:
-    image: "validator.stake-beacon-chain.public.dappnode.eth:0.1.0"
+    image: "validator.stake.dnp.dappnode.eth:0.1.0"
     build:
       context: validator
     volumes:
       - "validator-data:/root/"
     restart: unless-stopped
     environment:
-      BEACON_RPC_PROVIDER: "stake-beacon-chain.dappnode:4000"
+      BEACON_RPC_PROVIDER: "beacon-chain.stake.dappnode:4000"
+      BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.stake.dappnode:3500"
       EXTRA_OPTS: ""
 volumes:
   beacon-chain-data: {}

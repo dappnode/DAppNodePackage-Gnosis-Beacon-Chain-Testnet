@@ -16,7 +16,8 @@ ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/validator/validator.runfiles/prysm
     --wallet-password-file /root/.eth2wallets/wallet-password.txt \
     --write-wallet-password-on-web-onboarding \
     --web \
-    --beacon-rpc-provider $BEACON_RPC_PROVIDER \
+    --beacon-rpc-provider=\"$BEACON_RPC_PROVIDER\" \
+    --beacon-rpc-gateway-provider=\"$BEACON_RPC_GATEWAY_PROVIDER\" \
     --grpc-gateway-host=0.0.0.0 \
     --grpc-gateway-port=80 \
     --rpc-host 0.0.0.0 \
