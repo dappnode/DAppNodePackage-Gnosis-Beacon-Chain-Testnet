@@ -27,10 +27,3 @@ ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \
     --verbosity=debug \
     $EXTRA_OPTS" ]   
 
-##### TODO:
-# * Modificar las flags sobrantes como: verbosity
-# * Probar y testear el onboarding via web y si es posible acceder.
-# * Crear un paquete y subirlo a IPFS y testear funcionamiento
-# * Crear las claves BSL
-# * hacer el deposit, usar script del repo de POA
-
