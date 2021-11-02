@@ -14,6 +14,7 @@ RUN wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon
     wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/config.yml -P /root/sbc/config/
 
 ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \ 
+    --datadir=/data \
     --accept-terms-of-use \
     --contract-deployment-block=\"$DEPLOYMENT_BLOCK\" \
     --http-web3provider=\"$XDAI_RPC_URL\" \
