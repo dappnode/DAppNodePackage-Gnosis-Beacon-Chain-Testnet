@@ -24,6 +24,7 @@ services:
     environment:
       BEACON_RPC_PROVIDER: "beacon-chain.stake.dappnode:4000"
       BEACON_RPC_GATEWAY_PROVIDER: "beacon-chain.stake.dappnode:3500"
+      GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
 volumes:
   beacon-chain-data: {}
