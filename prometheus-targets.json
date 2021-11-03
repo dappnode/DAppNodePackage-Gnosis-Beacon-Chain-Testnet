@@ -1,0 +1,20 @@
+[
+    {
+        "labels": {
+            "package": "stake.dnp.dappnode.eth",
+            "service": "beacon-chain.stake.dappnode"
+        },
+        "targets": [
+            "beacon-chain.stake.dappnode:8080"
+        ]
+    },
+    {
+        "labels": {
+            "package": "stake.dnp.dappnode.eth",
+            "service": "validator.stake.dappnode"
+        },
+        "targets": [
+            "validator.stake.dappnode:8081"
+        ]
+    }
+]
