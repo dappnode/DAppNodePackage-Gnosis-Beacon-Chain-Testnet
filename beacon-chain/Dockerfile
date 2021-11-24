@@ -2,11 +2,11 @@ FROM debian:buster-slim as configuration
 
 # Get the image to obtain the binary
 RUN apt update && apt install --assume-yes git
-RUN git clone https://github.com/openethereum/sbc-prysm-launch /root/sbc
+RUN git clone --branch gbc-testnet https://github.com/openethereum/sbc-prysm-launch /root/sbc
 
 FROM debian:buster-slim 
 
-COPY --from=ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.1-sbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
+COPY --from=ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.2-sbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
 # Get the proper configuration files
 RUN apt-get update && apt-get install -y wget
