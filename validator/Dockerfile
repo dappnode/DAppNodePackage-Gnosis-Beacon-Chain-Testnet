@@ -1,7 +1,7 @@
 FROM debian:buster-slim 
 
 # Get the binary from the image and configuration files
-COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.1-sbc /app/cmd/* /usr/local/bin/validator/
+COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc /app/cmd/* /usr/local/bin/validator/
 
 RUN apt-get update && apt-get install -y wget
 RUN wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/bootnodes.yaml -P /root/sbc/config/ && \
