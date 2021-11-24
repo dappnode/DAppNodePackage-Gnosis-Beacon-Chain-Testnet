@@ -12,7 +12,7 @@ services:
     restart: unless-stopped
     environment:
       XDAI_RPC_URL: "https://sokol.poa.network/"
-      DEPLOYMENT_BLOCK: 22694907
+      DEPLOYMENT_BLOCK: 23784309
       EXTRA_OPTS: ""
   validator:
     image: "validator.stake.dnp.dappnode.eth:0.1.0"
