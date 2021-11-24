@@ -1,17 +1,12 @@
-FROM debian:buster-slim as configuration
-
-# Get the image to obtain the binary
-RUN apt update && apt install --assume-yes git
-RUN git clone --branch gbc-testnet https://github.com/openethereum/sbc-prysm-launch /root/sbc
-
 FROM debian:buster-slim 
 
 COPY --from=ghcr.io/openethereum/sbc-prysm-beacon-chain:v2.0.2-sbc /app/cmd/beacon-chain/beacon-chain /usr/local/bin/beacon-chain
 
 # Get the proper configuration files
 RUN apt-get update && apt-get install -y wget
-RUN wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/bootnodes.yaml -P /root/sbc/config/ && \
-    wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/config.yml -P /root/sbc/config/
+
+COPY /config/bootnodes.yaml /root/sbc/config/
+COPY /config/config.yml /root/sbc/config/
 
 ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/beacon-chain \ 
     --datadir=/data \
