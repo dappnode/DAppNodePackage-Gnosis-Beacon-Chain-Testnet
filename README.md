@@ -1,4 +1,4 @@
-# DAppNodePackage-Stake-Beacon-Chain
+# DAppNodePackage-Gnosis-Beacon-Chain-Testnet
 
 This package let you to run a node and a validator of xDai Network.
 

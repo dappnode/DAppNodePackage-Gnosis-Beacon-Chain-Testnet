@@ -1,20 +1,20 @@
 [
     {
         "labels": {
-            "package": "stake.dnp.dappnode.eth",
-            "service": "beacon-chain.stake.dappnode"
+            "package": "gnosis-testnet.dnp.dappnode.eth",
+            "service": "beacon-chain.gnosis-testnet.dappnode"
         },
         "targets": [
-            "beacon-chain.stake.dappnode:8080"
+            "beacon-chain.gnosis-testnet.dappnode:8080"
         ]
     },
     {
         "labels": {
-            "package": "stake.dnp.dappnode.eth",
-            "service": "validator.stake.dappnode"
+            "package": "gnosis-testnet.dnp.dappnode.eth",
+            "service": "validator.gnosis-testnet.dappnode"
         },
         "targets": [
-            "validator.stake.dappnode:8081"
+            "validator.gnosis-testnet.dappnode:8081"
         ]
     }
 ]
