@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   beacon-chain:
-    image: "beacon-chain.gnosis-testnet.dnp.dappnode.eth:0.1.0"
+    image: "beacon-chain.gnosis-beacon-chain-testnet.dnp.dappnode.eth:0.1.0"
     build:
       context: beacon-chain
     volumes:
@@ -15,7 +15,7 @@ services:
       DEPLOYMENT_BLOCK: 23784309
       EXTRA_OPTS: ""
   validator:
-    image: "validator.gnosis-testnet.dnp.dappnode.eth:0.1.0"
+    image: "validator.gnosis-beacon-chain-testnet.dnp.dappnode.eth:0.1.0"
     build:
       context: validator
     volumes:
