@@ -4,9 +4,10 @@ FROM debian:buster-slim
 COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc /app/cmd/* /usr/local/bin/validator/
 
 RUN apt-get update && apt-get install -y wget
-RUN wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/bootnodes.yaml -P /root/sbc/config/ && \
-    wget https://raw.githubusercontent.com/dappnode/DAppNodePackage-Stake-Beacon-Chain/main/node/config/config.yml -P /root/sbc/config/
 
+COPY /config/bootnodes.yaml /root/sbc/config/
+
+COPY /config/config.yml /root/sbc/config/
 
 ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/validator/validator.runfiles/prysm/cmd/validator/validator_/validator \
     --datadir=/root/.eth2 \
