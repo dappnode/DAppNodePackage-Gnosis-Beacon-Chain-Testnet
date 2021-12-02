@@ -1,12 +1,11 @@
 FROM debian:buster-slim 
 
 # Get the binary from the image and configuration files
-COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.2-sbc /app/cmd/* /usr/local/bin/validator/
+COPY --from=ghcr.io/openethereum/sbc-prysm-validator:v2.0.4-sbc /app/cmd/* /usr/local/bin/validator/
 
 RUN apt-get update && apt-get install -y wget
 
 COPY /config/bootnodes.yaml /root/sbc/config/
-
 COPY /config/config.yml /root/sbc/config/
 
 ENTRYPOINT [ "sh", "-c", "exec /usr/local/bin/validator/validator.runfiles/prysm/cmd/validator/validator_/validator \
