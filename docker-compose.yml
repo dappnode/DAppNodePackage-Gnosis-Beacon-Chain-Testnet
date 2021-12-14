@@ -12,6 +12,7 @@ services:
     restart: unless-stopped
     environment:
       XDAI_RPC_URL: "https://sokol.poa.network/"
+      CORSDOMAIN: "http://gnosis-beacon-chain-testnet.dappnode"
       DEPLOYMENT_BLOCK: 23784309
       EXTRA_OPTS: ""
   validator:
